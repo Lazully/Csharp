@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+//a)Desenvolvam um programa que armazene uma lista de convidados utilizando um array.
+
+namespace Ex2Lista1a
+{
+public class Exerc2A
+{
+public static void Main()
+{
+//muda a localização, no caso foi feito para aceitar caracteres BR
+Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+string[] convidados = new string[10];
+{ "Alice Falcão", "James Barnes", "Athena Ethernium", "Luna Lagoon", "Rita
+
+Farr", "Ellie Farrot", "Pedro Pascal",
+
+"Min Yoongi", "Jung Hoseok", "Park Jimin" };
+foreach (string convidado in convidados)
+{
+Console.WriteLine(convidado);
+}
+}//fim main
+}
+}
