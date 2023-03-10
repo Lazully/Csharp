@@ -1,0 +1,42 @@
+/*
+- entrada seja uma lista de frutas (entrada pode estar fixa no codigo ou vir pelo console) ok
+- as frutas devem estar escritas em minusculo e separados por virgula,
+- para cada fruta DIFERENTE na entrada adicione num objeto lista o nome da fruta com o
+primeiro caracter Maisculo e o restante minusculo
+- apos isso utilizando a lista imprima cada uma das strings na lista.
+- não pode nomes repetidos
+*/
+using System;
+public class Exerc3
+{
+public static void Main(string[] args)
+{
+//criando lista
+List<string> listaFrutas = new List<string>();
+string entrada;
+Console.WriteLine("Entre com a lista conforme Manual: ");
+entrada = Console.ReadLine();
+//pega Array de palavras separados por ';'
+string[] strArray = entrada.Split(';');
+//para cada palavra no Array
+foreach (string str in strArray)
+{
+//faz uma cópia em lower case
+string fruta = str.ToLower();
+//copia a primeira letra da string em um UpperCase
+string primeiraLetra = fruta.Substring(0, 1).ToUpper();
+;//fruta recebe Primeira Letra e restante minusculo;
+fruta = primeiraLetra
++ fruta.Substring(1, fruta.Length-1);
+//se a fruta ainda não existir na lista adiciona
+if (!listaFrutas.Contains(str))
+listaFrutas.Add(str);
+}
+foreach (string fruta in listaFrutas)
+Console.WriteLine("Resposta: " + Environment.NewLine);
+//exibe lista de frutas
+foreach (string fruta in listaFrutas)
+Console.WriteLine(fruta);
+}//fim main
+
+}//fim classe
