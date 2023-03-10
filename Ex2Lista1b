@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
+//Desenvolvam uma outra versao do programa de lista de convidados agora usando List.
+namespace Exerc2Lista1
+{
+public class Exerc2A
+{
+public static void Main()
+{
+//muda a localização, no caso foi feito para aceitar caracteres BR
+Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+List<string> convidados = new List<string>();//cria uma lista de nome convidados
+string op;
+string nomeSobrenome;
+Console.WriteLine("----- Bem Vindo a Lista de Convidados -----\n");
+do
+{
+Console.WriteLine("\nDeseja adicionar um convidado? [S/N]");
+op = Convert.ToString(Console.ReadLine());
+if (op == "S" || op == "s")
+{
+Console.WriteLine("Digite o nome e sobrenome do convidado separado por
+
+espaço: ");
+
+nomeSobrenome = Console.ReadLine();
+convidados.Add(nomeSobrenome);
+Console.WriteLine("Nome adicionado a lista.");
+}
+else
+{
+break;
+}
+} while (op == "S" || op == "s");
+Console.WriteLine("\n\nA lista possui " + convidados.Count() + " elementos.");
+foreach (string item in convidados)
+{
+
+Console.WriteLine("\nOs nomes presentes na lista são: ");
+Console.WriteLine(item.ToString());
+}
+}
+}
+}
