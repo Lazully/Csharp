@@ -1,0 +1,102 @@
+using System;
+
+namespace Vetor3
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            int tam = 100;
+            int[] entrada = GerarEntradas(tam);
+            string op;
+
+            do
+            {
+                Console.Clear();
+
+                Console.WriteLine("1. Maior \n2. Soma\n3. Recriar entrada.\n4. Exibir todos os números. ");
+                op = Console.ReadLine();
+
+                switch (op)
+                {
+                    case "1":
+                        Console.WriteLine(Maior(entrada));
+                        break;
+                    case "2":
+                        Console.WriteLine(Soma(entrada));
+                        break;
+                    case "3":
+                        entrada = GerarEntradas(tam);
+                        Console.WriteLine("Novos dados gerados! ");
+                        break;
+                    case "4":
+                        ExibirNumeros(entrada);
+                        break;
+                }
+            } while (op != "Sair");
+        }
+
+        public static int LerEntradas(int numeroEntradas)
+        {
+            int[] vetorNum = new int[numeroEntradas];
+            int maior = -1;
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Entre com o número: ");
+                vetorNum[i] = Convert.ToInt32(Console.ReadLine());
+
+                if (vetorNum[i] > maior)
+                {
+                    maior = vetorNum[i];
+                }
+            }
+            Console.WriteLine($"Maior número: {maior}");
+            return 0;
+        }
+
+        public static int[] GerarEntradas(int numeroEntradas)
+        {
+            int[] vetorNum = new int[numeroEntradas];
+            Random r = new Random(DateTime.Now.Millisecond);
+            for(int i = 0; i < numeroEntradas; i++)
+            {
+                vetorNum[i] = r.Next(0, 1000);
+            }
+            return vetorNum;
+        }//não entendi oq era pra ser essa função
+        public static void ExibirNumeros(int dados)
+        {
+            int[] vetorNum = new int[numeroEntradas];
+
+            Console.WriteLine("Números");
+            foreach (int num in dados)
+            {
+                Console.WriteLine(num + " ");
+                vetorNum[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }//não entendi oq era pra ser essa função
+
+        public static int Maior(int[] dados)
+        {
+            int Maior = int.MinValue;
+            foreach(int num in dados)
+            {
+                if (num > Maior)
+                    Maior = num;
+            }
+            return Maior;
+        }
+
+        public static int Soma (int[] dados)
+        {
+            int total = 0;
+            foreach(int num in dados)
+            {
+                total += num;
+            }
+            return total;
+        }
+    }
+
+}
