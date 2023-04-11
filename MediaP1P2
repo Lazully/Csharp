@@ -1,0 +1,46 @@
+using System;
+
+//vetor = array
+
+namespace VetorLista
+{
+    class MediaP1P2
+    {
+        static void Main(string[] args)
+        {
+            //inicialização de variável
+            int tam = 0;
+
+            //apresentação do programa
+            Console.WriteLine("================ Calcula Média do Aluno ================");
+            Console.WriteLine($"{Environment.NewLine}Informe a quantidade de alunos: ");
+            tam = Convert.ToInt32(Console.ReadLine()); //define o tamanho do vetor
+
+            Console.Clear();
+
+            //inicia o vetor e atribui em seu tamanho o valor informado pelo usuário
+            double[] nota1 = new double[tam];
+            double[] nota2 = new double[tam];
+            double[] media = new double[tam];
+
+            //inicia uma variável I como Index para os vetores, define para fazer o loop enquanto for menor que o tamanho dado pelo usuário
+            for(int i = 0; i < tam; i++)
+            {
+                Console.WriteLine($"{Environment.NewLine}Digite a nota da P1 e P2 do {i + 1}º aluno: ");
+                string str = Console.ReadLine();//lê a entrada como string
+                string[] strArray = str.Split();//define uma array do tipo string e separa por espaço
+                nota1[i] = Convert.ToDouble(strArray[0]);//atribui a string a nota 1 e salva no primeiro espaço
+                nota2[i] = Convert.ToDouble(strArray[1]);//atribui a string a nota 2 e salva no segundo espaço
+
+                media[i] = (nota1[i] + nota2[i]) / 2;//calcula media
+
+            }
+            Console.Clear();
+            //mostra as notas no final, acessando cada espaço em que as notas estão armazenadas nos dois vetores e mostra ao final
+            for (int i = 0; i < tam; i++)
+            {
+                Console.WriteLine($"Media final do aluno {i + 1}: {media[i]}");
+            }
+        }
+    }
+}
